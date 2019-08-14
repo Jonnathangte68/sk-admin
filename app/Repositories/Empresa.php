@@ -43,6 +43,7 @@ class Empresa //extends UploadFiler
 
         if(count($this->getEmpresa())>0){
             $e = $this->getEmpresa();
+            dd(env('API_URL').'enterprises/'.$e[0]->_id.'?token='.$this->token);
             $response = $client->put(
                 env('API_URL').'enterprises/'.$e[0]->_id.'?token='.$this->token,
                 array(
@@ -63,14 +64,9 @@ class Empresa //extends UploadFiler
                 )
             ); 
             $response2 = $response; 
-            //dd($response->getBody()->getContents());
             $response = $response->getBody()->getContents();
-
-            dd($response);
-            //dd($response);
             $json = json_decode($response); 
-	    $register_id = $json->_id;
-            //dd($register_id);
+	        $register_id = $json->_id;
             if (!is_null($logo)) {
                 $this->imageLoader($logo,'enterprise','logo_url',$register_id); 
             }
@@ -80,7 +76,6 @@ class Empresa //extends UploadFiler
             if (!is_null($img_principal)) {
                 $this->imageLoader($img_principal,'enterprise','img_principal',null);
             }
-
              $resp = json_decode($response2->getBody()->getContents());
         if ($resp === NULL) {
             return 1;

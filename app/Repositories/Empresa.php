@@ -63,7 +63,7 @@ class Empresa //extends UploadFiler
                 )
             ); 
             $response2 = $response; 
-            $response = $response->getBody()->getContents();
+            $response = $this->getEmpresa();
             dd($response);
             $json = json_decode($response); 
 	        $register_id = $json->_id;

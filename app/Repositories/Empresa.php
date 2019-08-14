@@ -43,7 +43,6 @@ class Empresa //extends UploadFiler
 
         if(count($this->getEmpresa())>0){
             $e = $this->getEmpresa();
-            dd(env('API_URL').'enterprises/'.$e[0]->_id.'?token='.$this->token);
             $response = $client->put(
                 env('API_URL').'enterprises/'.$e[0]->_id.'?token='.$this->token,
                 array(
@@ -65,6 +64,7 @@ class Empresa //extends UploadFiler
             ); 
             $response2 = $response; 
             $response = $response->getBody()->getContents();
+            dd($response);
             $json = json_decode($response); 
 	        $register_id = $json->_id;
             if (!is_null($logo)) {

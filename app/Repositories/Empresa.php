@@ -65,9 +65,10 @@ class Empresa //extends UploadFiler
             $response2 = $response; 
             //dd($response->getBody()->getContents());
             $response = $response->getBody()->getContents();
+
+            dd($response);
             //dd($response);
             $json = json_decode($response); 
-	    dd($json);
 	    $register_id = $json->_id;
             //dd($register_id);
             if (!is_null($logo)) {

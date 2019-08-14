@@ -64,8 +64,7 @@ class Empresa //extends UploadFiler
             ); 
             $response2 = $response; 
             $response = $this->getEmpresa();
-            dd($response);
-            $json = json_decode($response); 
+            $json = json_decode($response[0]); 
 	        $register_id = $json->_id;
             if (!is_null($logo)) {
                 $this->imageLoader($logo,'enterprise','logo_url',$register_id); 

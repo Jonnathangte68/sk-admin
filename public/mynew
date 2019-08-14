@@ -1,0 +1,3 @@
+<!DOCTYPE html><html><head><title></title></head><body>
+		<span style="color: white !important;">.</span>
+	<p class="resizable" style="position:absolute;top:48%;left:54%;color:rgb(68, 95, 21);font-size:26px;" draggable="true" ondragstart="drag(event)">Gbbbbbbbbbbb</p></body></html>

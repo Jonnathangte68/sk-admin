@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Repositories\Empresa;
+
+class EnterpriseController extends Controller
+{
+    protected $enterprise;
+
+    public function __construct(Empresa $enterprise)
+    {
+        $this->middleware('auth');
+        $this->enterprise = $enterprise;
+    }
+    
+    public function create()
+    {
+        //$enterprise = new Empresa;
+        //$res = $this->$enterprise->getEmpresa();
+        $e = $this->$enterprise->getEmpresa();
+        dd($e);
+        return view('admin.enterprise_gestion')->with('e',null);;//->with('e',$res);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $empresa = new Empresa;
+        $id->id;
+        $ciudad->update($request->input('name'), $request->input('phone'),$e);
+        return redirect()->action('Admin\CiudadController@index');
+    }
+}
